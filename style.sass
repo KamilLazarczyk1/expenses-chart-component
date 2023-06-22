@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap')
+$softRed: hsl(10, 79%, 65%)
+$cyan: hsl(186, 34%, 60%)
+$darkBrown: hsl(25, 47%, 15%)
+$mediumBrown: hsl(28, 10%, 53%)
+$cream: hsl(27, 66%, 92%)
+$veryPaleOrange: hsl(33, 100%, 98%)
+$fontSizeBody: 18px
+
+$borderRadSection: 10px
+
+*
+    box-sizing: border-box
+    font-family: 'DM Sans', sans-serif
+body
+    min-height: 100vh
+    display: flex
+    justify-content: center
+    align-items: center
+    margin: 0
+    padding: 0
+    background-color: $cream
+    font-size: 18px
+    main
+        margin: 10px
+        width: 350px
+        section.balanceSection
+            display: flex
+            justify-content: space-between
+            background-color: $softRed
+            color: $cream
+            border-radius: $borderRadSection
+            padding: 22px 20px
+            margin-bottom: 15px
+            img
+                width: 60px
+            p.myBalance
+                font-size: 16px
+                margin:
+                    top: 0
+                    bottom: 6px
+            p#balanceNum
+                margin:
+                    top: 0
+                    bottom: 0
+                font:
+                    weight: 700
+                    size: 26px 
+        section.chartComponent
+            background-color: $veryPaleOrange
+            color: $darkBrown
+            padding: 
+                top: 10px
+                left: 20px
+                right: 20px
+                bottom: 28px
+            border-radius: $borderRadSection
+            h3
+                font:
+                    weight: 700
+                    size: 24px
+            hr
+                border-top: 1px solid $cream
+            div.divSummary
+                *
+                    margin: 0
+                display: flex
+                justify-content: space-between
+                div.total
+                    *
+                        margin-top: 10px
+                    p#totalNum 
+                        font:
+                            weight: 700
+                            size: 30px
+                        margin:
+                            top: 5px
+                            bottom: 0
+                p.chartLabels
+                    color: $mediumBrown
+                    font:
+                        size: 16px
+                div.balance
+                    display: flex
+                    flex-direction: column
+                    align-items: end
+                    justify-content: end
+                    p#balancePercentage
+                        font:
+                            weight: 700
+                            size: 16px
+    @media screen and (min-width: 700px) 
+        main 
+            width: 400px
+            section.chartComponent
+                div.divSummary
+                    p.chartLabels
+                        font-size: 14px
+                    div.total
+                        p#totalNum
+                            font-size: 38px
+                    div.balance
+                        p#balancePercentage
+                            font-size: 14px
+    .attribution  
+        position: fixed
+        bottom:0
+        font-size: 11px 
+        text-align: center
+        a 
+            color: hsl(228, 45%, 44%) 
