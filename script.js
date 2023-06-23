@@ -28,15 +28,16 @@ fetch("data.json")
             data.addColumn('string', 'Day');
             data.addColumn('number', 'Amount');
             data.addColumn({ type: 'string', role: 'style' });
+            data.addColumn({type: 'string', role: 'tooltip'});
 
             for (let element of jsonData) { // changes the color of the bar that is representing the highest number                
                 if (maxChartBar == tmp) {
                     data.addRows([
-                        [element.day, element.amount, "color: #76b5bc; border-radius: 10px;"]
+                        [element.day, element.amount, "color: #76b5bc;", "$" + element.amount]
                     ])
                 } else {
                     data.addRows([
-                        [element.day, element.amount, "color: #ec775f; border-radius: 10px;"]
+                        [element.day, element.amount, "color: #ec775f;", "$" + element.amount]
                     ])
                 }
                 tmp++;
@@ -77,10 +78,21 @@ fetch("data.json")
         
       
             const chart = new google.visualization.BarChart(document.querySelector("section.chartComponent div.chart"));
-            chart.draw(data, options);    
-            window.addEventListener('resize', e => { // making the chart responsive in the event of changing the windows size
+            chart.draw(data, options);
+            function onMouseOverHandler() 
+            {
+                document.body.style.cursor = "pointer";
+            }
+            function onMouseOutHandler()
+            {
+                document.body.style.cursor = "auto";
+            }
+              window.addEventListener('resize', e => { // making the chart responsive in the event of changing the windows size
                 chart.draw(data, options);
-            });
+                });
+
+              google.visualization.events.addListener(chart, 'onmouseover', onMouseOverHandler);
+              google.visualization.events.addListener(chart, 'onmouseout', onMouseOutHandler);     
         }
     })
 

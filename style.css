@@ -50,6 +50,9 @@ body main section.chartComponent {
   padding-bottom: 28px;
   border-radius: 10px;
 }
+body main section.chartComponent rect:hover {
+  opacity: 0.6;
+}
 body main section.chartComponent h3 {
   font-weight: 700;
   font-size: 24px;
