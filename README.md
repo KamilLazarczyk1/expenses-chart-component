@@ -35,7 +35,6 @@ Users should be able to:
 
 ### Links
 
-- [Solution URL](https://github.com/KamilLazarczyk1/expenses-chart-component)
 - [Live site URL](https://kamillazarczyk1.github.io/expenses-chart-component/)
 
 ## My process
